@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% if number > 8 %}
+    <p>sucessfully </p>
+{% endif %}
+
+{% for project in projects %}
+    <li> Title:<a href="{% url 'project' project.id %}">{{project.title}} </a>--- {{project.description}}</li>
+
+{% endfor %}
+
+<p>Hello you are {{msg}}</p>
+
+<h1>Project template</h1>
+
+{% endblock content %}

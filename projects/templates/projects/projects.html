@@ -3,17 +3,25 @@
 
 {% block content %}
 
-{% if number > 8 %}
-    <p>sucessfully </p>
-{% endif %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Votes</th>
+        <th>Ratio</th>
+        <th></th>
+    </tr>
+    {% for project in projects %}
+        <tr>
+            <td>{{project.title}}</td>
+            <td>{{project.vote_total}}</td>
+            <td><a href="{% url 'project' project.id %}">View</a></td>
+        </tr>
+    {% endfor %}
+</table>
 
-{% for project in projects %}
-    <li> Title:<a href="{% url 'project' project.id %}">{{project.title}} </a>--- {{project.description}}</li>
 
-{% endfor %}
 
-<p>Hello you are {{msg}}</p>
 
-<h1>Project template</h1>
 
 {% endblock content %}
